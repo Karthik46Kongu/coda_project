@@ -1,0 +1,97 @@
+
+ 
+ <html>
+ <style>
+ *{
+   text-align:center;
+   font-family:times new roman;
+ }
+ body{
+  background-color:orange;
+  line-height:50px;
+ }
+ #k{
+  font-size:40px;
+ } 
+ </style>
+ 
+ <body id="demo1">
+ <span id=k>EMI CALCULATOR</span><br>
+ <form action="" name=myform onsubmit="return fun()">
+ Name:<br>
+<input type=text name=t1><br>
+Select the type of BANK<br>
+<select>
+<option>select type</option>
+<option onclick="color2('green')">KVB</option>
+<option onclick="color2('violet')">HDFC</option>
+<option onclick="color2('pink')">ICIC</option>
+<option onclick="color2('silver')">CUB</option>
+</select>
+<br>
+Select the type of LOAN<br>
+<select>
+<option>select type</option>
+<option onclick="car1()">CAR</option>
+<script>
+myfunction car1()
+{
+  document.forms[0].elements[4]="10";
+}
+</script>
+<option>HOME</option>
+<option>PERSONAL</option>
+</select>
+<br>
+Enter the principle amount:<br>
+<input type=number name=t2><br>
+Enter the Rate Of Interest:<br>
+<input id="car" type=text name=t3 disabled><br>
+Enter the Months:<br>
+<input type=number name=t4><br>
+<br>
+<input type=submit>
+<br>
+<input type=reset>
+ </form>
+ <p id=demo>
+ </p>
+ <script>
+
+    function color2(col)
+  {
+
+      document.getElementById("demo1").style.background=col;
+
+  }
+
+ function fun()
+ {
+ 
+   var a=document.myform;
+   var pp=a.t2.value;
+   var rr=a.t3.value;
+   var nn=a.t4.value;
+   var p=parseInt(pp);
+   var r=parseInt(rr);
+   var n=parseInt(nn);
+   r=r/n*100;
+   
+   var r1=r+1;
+   var r2=r;
+   while(n!=0)
+   {
+      r=r1*r;  
+	  n=n-1;
+   }	
+   var emi=p*r2*r;
+   r--;
+   emi=emi/r;
+   emi=emi/100;   
+   
+   document.getElementById("demo").innerHTML=emi+"  is your monthly INSTALLMENT";
+   return false;
+ }
+ </script>
+ </body>
+ </html>

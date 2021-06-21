@@ -1,0 +1,76 @@
+
+ 
+ <html>
+ <style>
+ *{
+   text-align:center;
+   font-family:times new roman;
+ }
+ body{
+  background-color:silver;
+  line-height:50px;
+ }
+ #k{
+  font-size:40px;
+ } 
+ input,button{
+    
+    padding:12px 20px;
+    opacity:0.8;
+    border:none;
+    border-radius:20px;
+}
+ </style>
+ 
+ <body id="demo1">
+ <span id=k>EMI CALCULATOR FOR HDFC BANK</span><br>
+ <form action="" name=myform onsubmit="return fun()">
+
+
+Enter the principle amount:<br>
+<input type=number name=t2><br>
+Enter the Rate Of Interest:<br>
+<input id="car" type=text name=t3 value="10%" disabled><br>
+Enter the Months:<br>
+<input type=number name=t4><br>
+<br>
+<input type=submit>
+<br>
+<input type=reset>
+ </form>
+ <a href="emi.html"><button>BACK</button></a>
+
+ <p id=demo>
+ </p>
+ <script>
+
+
+ function fun()
+ {
+ 
+   var a=document.myform;
+   var pp=a.t2.value;
+   var nn=a.t4.value;
+   var p=parseInt(pp);
+   var n=parseInt(nn);
+   var r=10;
+   r=r/n*100;
+   
+   var r1=r+1;
+   var r2=r;
+   while(n!=0)
+   {
+      r=r1*r;  
+	  n=n-1;
+   }	
+   var emi=p*r2*r;
+   r--;
+   emi=emi/r;
+   emi=emi/100;   
+   
+   document.getElementById("demo").innerHTML=emi+"  is your monthly INSTALLMENT";
+   return false;
+ }
+ </script>
+ </body>
+ </html>
