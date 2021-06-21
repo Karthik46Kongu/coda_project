@@ -1,0 +1,241 @@
+<html>
+
+<style>
+body{
+  background-color:lightgreen;
+  font-family:times new roman;
+
+}
+.main{
+   font-size:40px;
+   color:orange;
+   text-align:center;
+}
+#d{
+   background-color:black;
+}
+span{
+   color:red;
+}
+input{
+  border-radius:6px;
+  padding: 12px 20px;
+  border:none;
+  cursor:pointer;
+}
+</style>
+<body>
+<div class="main"><span id="d">Form Validation</span><hr></div>
+<table align=center>
+<form name="myform" onsubmit="return valid()">
+<tr><td>
+Name:</td><td>
+<input type="text" name="t1" id="demo1" onkeyup="fun()"><br>
+<span id="name"></span></td></tr>
+<tr><td>Password:</td><td>
+<input type="password" name="t2" id="demo2" onkeyup="fun1()" placeholder="***********"><br>
+<span id="pass"></span></td></tr>
+<tr><td>Confirm password:</td><td>
+<input type="password" name="t3" id="demo3" onkeyup="fun2()" placeholder="***********"><br>
+<span id="cpass"></span></td></tr>
+<tr><td>Department:</td><td>
+
+<select>
+<option>IT</option>
+<option>ECE</option>
+<option>EEE</option>
+<option>MECH</option>
+<option>AUTO</option>
+<option>FT</option>
+<option>CHEM</option>
+<option>EIE</option>
+<option>CSE</option>
+<option>MTS</option>
+<option>CIVIL</option>
+</select></td></tr>
+<tr><td>Year:</td><td>
+<select>
+<option>I</option>
+<option>II</option>
+<option>III</option>
+<option>IV</option>
+</select></td></tr>
+
+<tr><td>Email:</td><td>
+<input type="text" name="t4" id="demo4" onkeyup="fun3()"><br>
+<span id="email"></span></td></tr>
+<tr><td>Phone:</td><td>
+<input type="text" name="t5" id="demo5" onkeyup="fun4()"><br>
+<span id="phone"></span></td></tr>
+<tr><td>Account no:</td><td>
+<input type="text" name="t6" id="demo6" onkeyup="fun5()"><br>
+<span id="acno"></span></td></tr>
+<tr><td>Comment:</td><td>
+<textarea type="text" name="t7" id="demo7" onkeyup="fun6()" placeholder="write something....!" rows=10 cols=40></textarea></td></tr><br>
+<span id="com"></span>
+<tr><td>
+<input type="submit"></td><td>
+<input type="reset"></td></tr>
+</form>
+</table>
+</body>
+</html>
+<script>
+function fun()
+{
+  var x=document.myform;
+  var a=x.t1.value;
+  var np=/^[A-Z]{1}[a-z]{7,12}$/g;  
+  if(np.test(a)){
+   document.getElementById("demo1").style.border="2px solid green";
+   document.getElementById("name").innerHTML="";
+ 
+  }
+  else
+  {
+    document.getElementById("name").innerHTML="First letter should be capital and max of 8 chars";
+  }
+}
+function fun1()
+{
+  var x=document.myform;
+ 
+  var p=x.t2.value;
+  var pp=/^[A-Z]{1}[a-z]{5}[0-9]{4}[@]{2}/g;
+  if(p.length<=3)
+  {
+    document.getElementById("demo2").style.border="2px solid red";
+  }
+  if(p.length==8)
+  {
+    document.getElementById("demo2").style.border="2px solid yellow";
+  }
+  if(p.length==12)
+  {
+    document.getElementById("demo2").style.border="2px solid green";
+  }
+  if(p.length==0)
+  {
+     document.getElementById("pass").innerHTML="Enter a password";   
+  }
+  if(p.length>12&&(!(pp.test(p))))
+  {
+     document.getElementById("pass").innerHTML="NO constraints matched";
+  
+  }
+  else{
+       document.getElementById("pass").innerHTML="";
+    }
+
+
+}
+function fun2()
+{
+  var x=document.myform;
+ 
+  var p=x.t3.value;
+  var p1=x.t2.value;
+  var pp=/^[A-Z]{1}[a-z]{5}[0-9]{4}[@]{1}$/g;
+  
+  if(p!=p1)
+  {
+     document.getElementById("cpass").innerHTML="not match";
+  
+  }
+  else{
+       document.getElementById("cpass").innerHTML="";
+    }
+
+
+}
+function fun3()
+{
+  var x=document.myform;
+  var p=x.t4.value;
+  var pp=/^[a-z0-9]{1,20}[@]{1}[a-z]{3,5}[.]{1}[a-z]{2,3}/g;
+  
+  if(!pp.test(p))
+  {
+     document.getElementById("email").innerHTML="not a valid mail";
+  
+  }
+  else{
+       document.getElementById("email").innerHTML="";
+    }
+//  return false;*/
+
+
+}
+function fun4()
+{
+  var x=document.myform;
+  var p=x.t5.value;
+  var pp=/^[0-9]{5}[ ]{2}[0-9]{5}$/g
+  if(!pp.test(p))
+  {
+     document.getElementById("phone").innerHTML="not a valid phone number";
+  
+  }
+  else{
+       document.getElementById("phone").innerHTML="";
+    }
+	
+	if(p.length==5)
+	{
+		x.t5.value=""+p+"  ";
+	}
+//  return false;*/
+
+
+}
+function fun5()
+{
+  var x=document.myform;
+  var p=x.t6.value;
+  var pp=/^[0-9]{12}$/g
+  if(!pp.test(p))
+  {
+     document.getElementById("acno").innerHTML="not a valid Account number";
+  
+  }
+  else{
+       document.getElementById("acno").innerHTML="";
+    }
+	
+	
+//  return false;*/
+
+
+}
+function fun6()
+{
+  var x=document.myform;
+  var p=x.t7.value;
+  if(p.length>=200)
+  {
+     document.getElementById("com").innerHTML="not exceeding 200 characters";
+  
+  }
+  else{
+       document.getElementById("com").innerHTML="";
+    }
+	
+
+}
+function valid()
+{
+fun();
+fun1();
+fun2();
+fun3();
+fun4();
+fun5();
+fun6();
+if(document.getElementById("name").innerHTML=="" && document.getElementById("pass").innerHTML=="" && document.getElementById("cpass").innerHTML=="" && document.getElementById("email").innerHTML=="" &&   document.getElementById("phone").innerHTML=="" && document.getElementById("acno").innerHTML=="" && document.getElementById("com").innerHTML=="")
+{
+document.write("Success");
+return true;
+}
+return false;
+}
+</script>
