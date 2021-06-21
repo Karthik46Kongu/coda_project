@@ -1,0 +1,37 @@
+#insert{
+	display:none;
+}
+#update{
+	display:none;
+}
+#updateoutput{
+	display:none;
+}
+#search,#total{
+	display:none;
+}
+#heading{
+	
+	font-size:50px;
+	font-family: cursive;
+	text-align: center;
+	background-color: aqua;
+	height: 100px;
+	margin-right: 0px;
+	margin-left: 0px;
+}
+#header{
+	background-color: rgb(121, 240, 214);
+	height: 45px;
+	width:100%;
+}
+button,input{
+	margin-top: 0px;
+	background-color: rgb(240, 194, 121);
+	padding:12px 20px;
+
+}
+body{
+	background-color: rgb(255, 226, 231);
+	
+}

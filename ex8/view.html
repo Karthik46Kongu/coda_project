@@ -1,0 +1,47 @@
+<html>
+	<head>
+		<link rel="stylesheet" type="text/css" href="theme.css">
+	  </head>
+<body>
+	
+<div id="header">
+		STUDENTS DETAILS MANAGEMENT SYSTEM
+	</div>
+	<ul>
+			<li><a href="hyperlink.php">Home</a></li>
+			<li><a href="input.html">
+					Insert</a></li>
+			<li><a href="hyperlink.php">
+					Back</a></li>
+            <li style='float:right';><a href="logout.php">logout</a></li>
+</ul>
+<form action="view.php" method="post">
+<tr><td>Department</td><td>
+<select  name="t1" required>
+<option  value="all">All</option>
+<option  value="Information Technology">Information Technology</option>
+<option  value="Computer Science  Engineering">Computer Science</option>
+<option  value="Electrical and Electronical Engineering">Electrical and Electronical</option>
+<option  value="Electrical and InstrumentalEngineering">Electrical and Instrumental</option>
+<option  value="Electronic communication">Electronic communication</option>
+<option  value="Food Technology">Food Technology</option>
+<option  value="Chemical Engineering">Chemical Engineering</option>
+<option  value="Automobile Engineering">Automobile Engineering</option>
+<option  value="Mechanical Engineering">Mechanical Engineering</option>
+<option  value="Civi Engineering">Civi Engineering</option>
+<option  value="Mechatronics Engineering">Mechatronics Engineering</option>
+
+</select></td></tr>
+<tr><td>Year</td><td>
+<select name="t2" required>
+<option  value="all">All</option>
+<option  value="I">I</option>
+<option  value="II">II</option>
+<option  value="III">III</option>
+<option  value="IV">IV</option>
+
+</select></td></tr><br>
+<input type=submit>
+</form>
+</body>
+</html>
